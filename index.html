@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wanish Cloud</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+background:#080d19;
+color:white;
+font-family:Arial;
+padding:20px;
+}
+header{
+font-size:26px;
+font-weight:bold;
+color:#55b8ff;
+margin-bottom:25px;
+}
+.card{
+background:#151f32;
+padding:22px;
+border-radius:18px;
+margin-bottom:20px;
+}
+h2{font-size:20px}
+button{
+background:#168cff;
+color:white;
+border:0;
+padding:14px;
+border-radius:10px;
+width:100%;
+font-size:16px;
+}
+input{display:none}
+.file{
+background:#202d43;
+padding:14px;
+border-radius:10px;
+margin-top:10px;
+overflow-wrap:anywhere;
+}
+</style>
+</head>
+
+<body>
+
+<header>☁️ Wanish Cloud</header>
+
+<div class="card">
+<h2>Welcome to your Cloud</h2>
+<p>Your personal file manager</p>
+</div>
+
+<div class="card">
+<h2>📤 Upload Files</h2>
+<input type="file" id="upload" multiple>
+<button onclick="document.getElementById('upload').click()">
+Choose Files
+</button>
+</div>
+
+<div class="card">
+<h2>📁 My Files</h2>
+<div id="files">No files uploaded</div>
+</div>
+
+<script>
+document.getElementById('upload').onchange=function(){
+let box=document.getElementById('files');
+if(box.innerHTML==="No files uploaded")box.innerHTML="";
+for(let f of this.files){
+let item=document.createElement('div');
+item.className='file';
+item.textContent='📄 '+f.name;
+box.appendChild(item);
+}
+};
+</script>
+
+</body>
+</html>
